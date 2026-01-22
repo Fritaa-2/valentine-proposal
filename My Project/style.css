@@ -1,0 +1,162 @@
+/* Body and background */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  /* Background image with gradient overlay */
+  background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('bg.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white; /* text color on dark overlay */
+}
+
+/* Heading and hint */
+h1 {
+  margin-top: 20px;
+}
+
+.hint {
+  font-size: 14px;
+  color: #f0e5f5;
+  margin-bottom: 10px;
+}
+
+/* Gallery scroll container */
+.gallery {
+  height: 80vh;
+  overflow-y: scroll;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Flip card container */
+.card {
+  width: 300px;
+  height: 400px;
+  perspective: 1000px; /* 3D effect */
+  margin: 20px 0;
+  cursor: pointer;
+}
+
+/* Inner wrapper for flipping */
+.card-inner {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+  position: relative;
+}
+
+/* Flip when clicked */
+.card.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Front and back faces */
+.card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  backface-visibility: hidden;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.25);
+}
+
+/* Front: the picture */
+.card-front img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Back: the letter */
+.card-back {
+  background-color: rgba(255, 230, 245, 0.9);
+  color: #d63384;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  padding: 20px;
+  transform: rotateY(180deg); /* hidden initially */
+  text-align: center;
+}
+
+/* Optional: smooth scrollbar styling */
+.gallery::-webkit-scrollbar {
+  width: 8px;
+}
+
+.gallery::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+.gallery::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+}
+
+/* NEXT button */
+#nextBtn {
+  margin: 30px;
+  padding: 15px 30px;
+  font-size: 20px;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  background: hotpink;
+  color: white;
+}
+
+/* Ring Section */
+#ringSection {
+  display: none;
+  text-align: center;
+  margin-top: 40px;
+}
+
+#ringBox {
+  width: 200px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+#ringBox:hover {
+  transform: scale(1.05);
+}
+
+#question {
+  display: none;
+  font-size: 36px;
+  margin-top: 20px;
+  color: crimson;
+}
+
+/* Yes / No buttons */
+#answerBtns {
+  display: none;
+  margin-top: 20px;
+}
+
+#answerBtns button {
+  font-size: 22px;
+  padding: 12px 30px;
+  margin: 10px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+}
+
+.yes {
+  background: #ff4d6d;
+  color: white;
+}
+
+.no {
+  background: #aaa;
+}
